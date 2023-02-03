@@ -29,13 +29,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     //#TODO - handle empty fields
     let records: Vec<Register> = rdr.deserialize().collect::<Result<_, _>>()?;
     let _json: String = to_string(&records)?;
-    //print the first 10
-    //print_all(&records);
     find_by_reg(32, &records);
+    //print_all(&records);
     /*for i in 1..records.len() {
         println!("records: {:#?}", records[i]);
     }*/
-    //println!("{:#?}", json);
     Ok(())
 }
 
@@ -50,6 +48,5 @@ fn find_by_reg(n: u32, rec: &Vec<Register>) {
         if rec[i].addr == n {
             println!("found record: {:#?}", rec[i]);
         }
-        
     }
 }
